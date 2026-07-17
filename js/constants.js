@@ -1,20 +1,110 @@
 window.DEFAULT_PLAN = [
     {
-        id: "w1", name: "Week A",
+        id: "w1",
+        name: "Week A",
         days: [
-            { id: "d1", name: "Monday — Chest + Biceps", exercises: [{ id: "chest_flat_barbell" }, { id: "chest_incline_db" }, { id: "chest_cable_fly_mid" }, { id: "chest_dips" }, { id: "bicep_db_curl" }, { id: "bicep_hammer" }, { id: "bicep_incline" }] },
-            { id: "d2", name: "Tuesday — Back + Triceps", exercises: [{ id: "back_lat_pulldown" }, { id: "back_barbell_row" }, { id: "back_cable_row" }, { id: "back_straight_arm" }, { id: "tri_rope" }, { id: "tri_overhead_rope" }, { id: "tri_bar" }] },
-            { id: "d3", name: "Thursday — Shoulders", exercises: [{ id: "shoulder_db_press" }, { id: "shoulder_lateral_db" }, { id: "shoulder_rear_db" }, { id: "shoulder_facepull" }, { id: "shoulder_upright" }, { id: "shoulder_shrug_db" }] },
-            { id: "d4", name: "Saturday — Legs", exercises: [{ id: "leg_back_squat" }, { id: "leg_legpress" }, { id: "leg_rdl" }, { id: "leg_extension" }, { id: "leg_curl_lying" }, { id: "calf_standing" }] }
+            {
+                id: "d1",
+                name: "Monday — Chest + Biceps",
+                exercises: [
+                    { id: "chest_flat_barbell" },
+                    { id: "chest_incline_db" },
+                    { id: "chest_dips" },
+                    { id: "chest_cable_fly_mid" },
+                    { id: "bicep_db_curl" },
+                    { id: "bicep_hammer" }
+                ]
+            },
+            {
+                id: "d2",
+                name: "Tuesday — Back + Triceps",
+                exercises: [
+                    { id: "back_pullup" },
+                    { id: "back_barbell_row" },
+                    { id: "back_cable_row" },
+                    { id: "tri_rope" },
+                    { id: "tri_overhead_rope" },
+                    { id: "shoulder_shrug_barbell" }
+                ]
+            },
+            {
+                id: "d3",
+                name: "Thursday — Shoulders",
+                exercises: [
+                    { id: "shoulder_db_press" },
+                    { id: "shoulder_lateral_db" },
+                    { id: "shoulder_rear_db" },
+                    { id: "shoulder_facepull" },
+                    { id: "shoulder_upright" }
+                ]
+            },
+            {
+                id: "d4",
+                name: "Saturday — Legs",
+                exercises: [
+                    { id: "leg_back_squat" },
+                    { id: "leg_rdl" },
+                    { id: "leg_legpress" },
+                    { id: "leg_curl_lying" },
+                    { id: "leg_extension" },
+                    { id: "calf_standing" },
+                    { id: "leg_lunge" }
+                ]
+            }
         ]
     },
     {
-        id: "w2", name: "Week B",
+        id: "w2",
+        name: "Week B",
         days: [
-            { id: "d5", name: "Monday — Chest + Triceps", exercises: [{ id: "chest_incline_barbell" }, { id: "chest_machine_press" }, { id: "chest_pecdeck" }, { id: "chest_cable_fly_low" }, { id: "tri_skull" }, { id: "tri_closegrip" }, { id: "tri_overhead_db" }] },
-            { id: "d6", name: "Tuesday — Back + Biceps", exercises: [{ id: "back_pullup" }, { id: "back_tbar" }, { id: "back_chest_supported" }, { id: "back_machine_row" }, { id: "bicep_ez" }, { id: "bicep_preacher" }, { id: "bicep_bayesian" }] },
-            { id: "d7", name: "Thursday — Shoulders", exercises: [{ id: "shoulder_machine_press" }, { id: "shoulder_arnold" }, { id: "shoulder_lateral_cable" }, { id: "shoulder_reverse_pecdeck" }, { id: "shoulder_facepull" }, { id: "shoulder_shrug_barbell" }] },
-            { id: "d8", name: "Saturday — Legs", exercises: [{ id: "leg_front_squat" }, { id: "leg_bulgarian" }, { id: "leg_hipthrust" }, { id: "leg_curl_seated" }, { id: "leg_stepup" }, { id: "calf_seated" }] }
+            {
+                id: "d5",
+                name: "Monday — Chest + Triceps",
+                exercises: [
+                    { id: "chest_incline_barbell" },
+                    { id: "chest_machine_press" },
+                    { id: "chest_dips" },
+                    { id: "chest_pecdeck" },
+                    { id: "tri_skull" },
+                    { id: "tri_rope" }
+                ]
+            },
+            {
+                id: "d6",
+                name: "Tuesday — Back + Biceps",
+                exercises: [
+                    { id: "back_pullup" },
+                    { id: "back_tbar" },
+                    { id: "back_chest_supported" },
+                    { id: "bicep_ez" },
+                    { id: "bicep_preacher" },
+                    { id: "shoulder_shrug_barbell" }
+                ]
+            },
+            {
+                id: "d7",
+                name: "Thursday — Shoulders",
+                exercises: [
+                    { id: "shoulder_machine_press" },
+                    { id: "shoulder_arnold" },
+                    { id: "shoulder_lateral_cable" },
+                    { id: "shoulder_reverse_pecdeck" },
+                    { id: "shoulder_facepull" },
+                    { id: "shoulder_lateral_db" }
+                ]
+            },
+            {
+                id: "d8",
+                name: "Saturday — Legs",
+                exercises: [
+                    { id: "leg_front_squat" }, // or leg_hack
+                    { id: "leg_bulgarian" },
+                    { id: "leg_rdl" },
+                    { id: "leg_curl_seated" },
+                    { id: "leg_lunge" },
+                    { id: "calf_seated" }
+                ]
+            }
         ]
     }
 ];
