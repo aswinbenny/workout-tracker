@@ -1,6 +1,6 @@
 {
-  "name": "Workout Tracker",
-  "short_name": "Workout",
+  "name": "Lift",
+  "short_name": "Lift",
   "description": "Offline-first personal workout tracker with Apple-style UI.",
   "start_url": "./index.html",
   "display": "standalone",
