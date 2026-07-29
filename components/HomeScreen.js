@@ -106,7 +106,7 @@ window.HomeScreen = function HomeScreen({ plan, startWorkout }) {
                     <div key={d.id} className="w-full flex-shrink-0 snap-center">
                         <div className="bg-lightCard dark:bg-darkCard rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 p-0 overflow-hidden mb-6">
                             <div className="bg-gray-50/50 dark:bg-black/20 p-5 border-b border-gray-100 dark:border-white/5">
-                                <h3 className="text-xl font-bold">{d.name} — {d.description}</h3>
+                                <h3 className="text-xl font-bold">{d.description}</h3>
                                 <p className="text-sm text-gray-500 font-medium mt-1">{d.exercises.length} exercises</p>
                             </div>
                             <div className="p-2">

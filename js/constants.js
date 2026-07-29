@@ -1,7 +1,7 @@
 window.DEFAULT_PLAN = [
     {
         id: "w1",
-        name: "Week A: Heavy Compound & Machine Integration",
+        name: "Week A",
         days: [
             {
                 id: "d1",
@@ -59,7 +59,7 @@ window.DEFAULT_PLAN = [
     },
     {
         id: "w2",
-        name: "Week B: Angle Variations & Hypertrophy",
+        name: "Week B",
         days: [
             {
                 id: "d5",
