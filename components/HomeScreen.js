@@ -73,7 +73,7 @@ window.HomeScreen = function HomeScreen({ plan, startWorkout }) {
     return (
         <div className="p-5 pb-32">
             <div className="mt-4 mb-8">
-                <h1 className="text-3xl font-bold tracking-tight mb-6">Workout</h1>
+                <h1 className="text-3xl font-bold tracking-tight mb-6">LIFT</h1>
                 
                 <div className="flex space-x-2 overflow-x-auto hide-scrollbar snap-x">
                     {plan.map(w => (

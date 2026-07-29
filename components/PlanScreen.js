@@ -20,14 +20,43 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
     const deleteWeek = (wIdx) => { if(confirm("Delete this entire week?")) { plan.splice(wIdx, 1); updatePlan(plan); } };
     
     const addDay = (wIdx) => setModalConfig({
-        title: "Add Workout Day", subtitle: "Enter a name for your new workout day.", placeholder: "Monday — Chest + Biceps", initialValue: "",
-        onSave: (name) => { plan[wIdx].days.push({ id: window.generateId(), name, exercises: [] }); updatePlan(plan); setModalConfig(null); }
+        title: "Add Workout Day", 
+        subtitle: "Enter the day and its focus.", 
+        showDescriptionInput: true,
+        placeholder: "Day (e.g., Monday)", 
+        descriptionPlaceholder: "Focus (e.g., Upper Body)",
+        initialValue: "",
+        initialDescription: "",
+        onSave: (data) => { 
+            plan[wIdx].days.push({ 
+                id: window.generateId(), 
+                name: data.name, 
+                description: data.description, 
+                exercises: [] 
+            }); 
+            updatePlan(plan); 
+            setModalConfig(null); 
+        }
     });
     
-    const renameDay = (wIdx, dIdx) => setModalConfig({
-        title: "Rename Workout Day", subtitle: "Enter a new name for this day.", placeholder: "Monday — Chest", initialValue: plan[wIdx].days[dIdx].name,
-        onSave: (name) => { plan[wIdx].days[dIdx].name = name; updatePlan(plan); setModalConfig(null); }
-    });
+    const renameDay = (wIdx, dIdx) => {
+        const currentDay = plan[wIdx].days[dIdx];
+        setModalConfig({
+            title: "Edit Workout Day", 
+            subtitle: "Update the day and its focus.", 
+            showDescriptionInput: true,
+            placeholder: "Day (e.g., Monday)", 
+            descriptionPlaceholder: "Focus (e.g., Upper Body)",
+            initialValue: currentDay.name,
+            initialDescription: currentDay.description || "",
+            onSave: (data) => { 
+                currentDay.name = data.name; 
+                currentDay.description = data.description;
+                updatePlan(plan); 
+                setModalConfig(null); 
+            }
+        });
+    };
     
     const deleteDay = (wIdx, dIdx) => { if(confirm("Delete this day?")) { plan[wIdx].days.splice(dIdx, 1); updatePlan(plan); } };
     const moveDay = (wIdx, dIdx, dir) => { const arr = plan[wIdx].days; if (dIdx + dir < 0 || dIdx + dir >= arr.length) return; [arr[dIdx], arr[dIdx+dir]] = [arr[dIdx+dir], arr[dIdx]]; updatePlan(plan); };
@@ -41,14 +70,6 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
         currentExercises.push({ id: exercise.id });
         updatePlan(plan);
         setPickerTarget(null);
-    };
-
-    const renameExercise = (wIdx, dIdx, eIdx) => { 
-        const currentEx = plan[wIdx].days[dIdx].exercises[eIdx];
-        setModalConfig({
-            title: "Rename Exercise", subtitle: "Enter a new name for this exercise.", placeholder: "Bench Press", initialValue: currentEx.name || window.exerciseMap[currentEx.id]?.name,
-            onSave: (name) => { currentEx.name = name; updatePlan(plan); setModalConfig(null); }
-        });
     };
     
     const deleteExercise = (wIdx, dIdx, eIdx) => { plan[wIdx].days[dIdx].exercises.splice(eIdx, 1); updatePlan(plan); };
@@ -89,7 +110,9 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
                     {week.days.map((day, dIdx) => (
                         <div key={day.id} className="bg-lightCard dark:bg-darkCard rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 p-0 overflow-hidden mb-4 shadow-sm">
                             <div className="bg-gray-100/80 dark:bg-darkCard p-4 flex justify-between items-center border-b border-gray-200/50 dark:border-white/5">
-                                <h3 className="font-bold text-lg cursor-pointer flex-1" onClick={() => renameDay(wIdx, dIdx)}>{day.name}</h3>
+                                <h3 className="font-bold text-lg cursor-pointer flex-1 truncate pr-2" onClick={() => renameDay(wIdx, dIdx)}>
+                                    {day.name} {day.description ? `— ${day.description}` : ""}
+                                </h3>
                                 <div className="flex items-center space-x-2 text-gray-400">
                                     <button onClick={() => moveDay(wIdx, dIdx, -1)} className="p-2 active-bounce"><ChevronUp/></button>
                                     <button onClick={() => moveDay(wIdx, dIdx, 1)} className="p-2 active-bounce"><ChevronDown/></button>
@@ -99,7 +122,8 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
                             <div className="p-2">
                                 {day.exercises.map((ex, eIdx) => (
                                     <div key={ex.id} className="flex items-center justify-between p-3 border-b border-gray-100 dark:border-white/5 last:border-0 group">
-                                        <div className="flex-1 font-medium text-gray-800 dark:text-gray-200 text-lg cursor-pointer pr-2 truncate" onClick={() => renameExercise(wIdx, dIdx, eIdx)}>{window.exerciseMap[ex.id]?.name || ex.name}</div>
+                                        {/* Removed onClick and cursor-pointer here */}
+                                        <div className="flex-1 font-medium text-gray-800 dark:text-gray-200 text-lg pr-2 truncate">{window.exerciseMap[ex.id]?.name || ex.name}</div>
                                         <div className="flex items-center text-gray-400">
                                            <button onClick={() => moveExercise(wIdx, dIdx, eIdx, -1)} className="p-2 active-bounce"><ChevronUp/></button>
                                            <button onClick={() => moveExercise(wIdx, dIdx, eIdx, 1)} className="p-2 active-bounce"><ChevronDown/></button>
