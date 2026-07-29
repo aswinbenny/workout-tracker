@@ -90,7 +90,7 @@ window.HomeScreen = function HomeScreen({ plan, startWorkout }) {
                 {week?.days.map((d, i) => (
                     <button key={d.id} onClick={() => handleDayTabClick(d.id, i)}
                         className={`snap-center px-4 py-2 rounded-2xl font-semibold whitespace-nowrap transition-all ${d.id === selectedDayId ? 'bg-brand/10 text-brand border border-brand/20' : 'bg-transparent text-gray-500 border border-transparent'}`}>
-                        {d.name.split('—')[0].trim()}
+                        {d.name}
                     </button>
                 ))}
             </div>
@@ -106,7 +106,7 @@ window.HomeScreen = function HomeScreen({ plan, startWorkout }) {
                     <div key={d.id} className="w-full flex-shrink-0 snap-center">
                         <div className="bg-lightCard dark:bg-darkCard rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 p-0 overflow-hidden mb-6">
                             <div className="bg-gray-50/50 dark:bg-black/20 p-5 border-b border-gray-100 dark:border-white/5">
-                                <h3 className="text-xl font-bold">{d.name}</h3>
+                                <h3 className="text-xl font-bold">{d.name} — {d.description}</h3>
                                 <p className="text-sm text-gray-500 font-medium mt-1">{d.exercises.length} exercises</p>
                             </div>
                             <div className="p-2">
@@ -125,7 +125,7 @@ window.HomeScreen = function HomeScreen({ plan, startWorkout }) {
             {/* Start Workout Button */}
             {day && (
                 <div className="fixed bottom-[90px] left-0 right-0 w-full max-w-md mx-auto px-5 z-40 pointer-events-none pb-safe">
-                    <button onClick={() => startWorkout({ weekName: week.name, dayName: day.name, exercises: day.exercises })}
+                    <button onClick={() => startWorkout({ weekName: week.name, dayName: `${day.name} — ${day.description}`, exercises: day.exercises })}
                         className="w-full bg-brand text-white text-xl font-bold py-4 rounded-[20px] shadow-lg shadow-brand/30 pointer-events-auto active-bounce">
                         Start Workout
                     </button>

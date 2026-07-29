@@ -1,11 +1,12 @@
 window.DEFAULT_PLAN = [
     {
         id: "w1",
-        name: "Week A",
+        name: "Week A: Heavy Compound & Machine Integration",
         days: [
             {
                 id: "d1",
                 name: "Monday",
+                description: "Upper Body A (Push/Pull Strength)",
                 exercises: [
                     { id: "chest_flat_barbell" },
                     { id: "back_barbell_row" },
@@ -18,6 +19,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d2",
                 name: "Wednesday",
+                description: "Lower Body A (Squat & Deadlift Emphasis)",
                 exercises: [
                     { id: "leg_back_squat" },
                     { id: "back_deadlift" },
@@ -30,6 +32,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d3",
                 name: "Friday",
+                description: "Upper Body B (Shoulder & Arm Emphasis)",
                 exercises: [
                     { id: "shoulder_barbell_press" },
                     { id: "chest_dips" },
@@ -42,6 +45,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d4",
                 name: "Saturday",
+                description: "Lower Body B (Machine Hypertrophy)",
                 exercises: [
                     { id: "leg_leverage_squat" },
                     { id: "leg_legpress" },
@@ -55,11 +59,12 @@ window.DEFAULT_PLAN = [
     },
     {
         id: "w2",
-        name: "Week B",
+        name: "Week B: Angle Variations & Hypertrophy",
         days: [
             {
                 id: "d5",
                 name: "Monday",
+                description: "Upper Body C (Incline & Lat Focus)",
                 exercises: [
                     { id: "chest_machine_incline_press" },
                     { id: "back_cable_row" },
@@ -72,6 +77,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d6",
                 name: "Wednesday",
+                description: "Lower Body C (Unilateral & Power Focus)",
                 exercises: [
                     { id: "leg_goblet_squat" },
                     { id: "back_hyperextension" },
@@ -84,6 +90,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d7",
                 name: "Friday",
+                description: "Upper Body D (Dumbbell Mastery)",
                 exercises: [
                     { id: "shoulder_db_press" },
                     { id: "back_close_pulldown" },
@@ -96,6 +103,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d8",
                 name: "Saturday",
+                description: "Lower Body D (Speed & Volume)",
                 exercises: [
                     { id: "leg_back_squat" },
                     { id: "leg_curl_seated" },
