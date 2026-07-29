@@ -5,50 +5,50 @@ window.DEFAULT_PLAN = [
         days: [
             {
                 id: "d1",
-                name: "Monday — Chest + Biceps",
+                name: "Monday",
                 exercises: [
                     { id: "chest_flat_barbell" },
+                    { id: "back_barbell_row" },
                     { id: "chest_incline_db" },
-                    { id: "chest_dips" },
-                    { id: "chest_cable_fly_mid" },
-                    { id: "bicep_db_curl" },
-                    { id: "bicep_hammer" }
+                    { id: "back_pullup" },
+                    { id: "tri_single_db_ext" },
+                    { id: "shoulder_lateral_db" }
                 ]
             },
             {
                 id: "d2",
-                name: "Tuesday — Back + Triceps",
+                name: "Wednesday",
                 exercises: [
-                    { id: "back_pullup" },
-                    { id: "back_barbell_row" },
-                    { id: "back_cable_row" },
-                    { id: "tri_rope" },
-                    { id: "tri_overhead_rope" },
-                    { id: "shoulder_shrug_barbell" }
+                    { id: "leg_back_squat" },
+                    { id: "back_deadlift" },
+                    { id: "leg_bulgarian" },
+                    { id: "leg_lunge" },
+                    { id: "calf_standing" },
+                    { id: "leg_goblet_squat" }
                 ]
             },
             {
                 id: "d3",
-                name: "Thursday — Shoulders",
+                name: "Friday",
                 exercises: [
-                    { id: "shoulder_db_press" },
+                    { id: "shoulder_barbell_press" },
+                    { id: "chest_dips" },
+                    { id: "back_db_row" },
+                    { id: "shoulder_reverse_pecdeck" },
                     { id: "shoulder_lateral_db" },
-                    { id: "shoulder_rear_db" },
-                    { id: "shoulder_facepull" },
-                    { id: "shoulder_upright" }
+                    { id: "bicep_hammer" }
                 ]
             },
             {
                 id: "d4",
-                name: "Saturday — Legs",
+                name: "Saturday",
                 exercises: [
-                    { id: "leg_back_squat" },
-                    { id: "leg_rdl" },
+                    { id: "leg_leverage_squat" },
                     { id: "leg_legpress" },
-                    { id: "leg_curl_lying" },
                     { id: "leg_extension" },
-                    { id: "calf_standing" },
-                    { id: "leg_lunge" }
+                    { id: "back_hyperextension" },
+                    { id: "leg_curl_seated" },
+                    { id: "calf_standing" }
                 ]
             }
         ]
@@ -59,50 +59,50 @@ window.DEFAULT_PLAN = [
         days: [
             {
                 id: "d5",
-                name: "Monday — Chest + Triceps",
+                name: "Monday",
                 exercises: [
-                    { id: "chest_incline_barbell" },
-                    { id: "chest_machine_press" },
-                    { id: "chest_dips" },
+                    { id: "chest_machine_incline_press" },
+                    { id: "back_cable_row" },
                     { id: "chest_pecdeck" },
+                    { id: "back_lat_pulldown" },
                     { id: "tri_skull" },
-                    { id: "tri_rope" }
+                    { id: "bicep_machine" }
                 ]
             },
             {
                 id: "d6",
-                name: "Tuesday — Back + Biceps",
+                name: "Wednesday",
                 exercises: [
-                    { id: "back_pullup" },
-                    { id: "back_tbar" },
-                    { id: "back_chest_supported" },
-                    { id: "bicep_ez" },
-                    { id: "bicep_preacher" },
-                    { id: "shoulder_shrug_barbell" }
+                    { id: "leg_goblet_squat" },
+                    { id: "back_hyperextension" },
+                    { id: "leg_lunge" },
+                    { id: "leg_sumo_squat" },
+                    { id: "calf_standing" },
+                    { id: "leg_curl_seated" }
                 ]
             },
             {
                 id: "d7",
-                name: "Thursday — Shoulders",
+                name: "Friday",
                 exercises: [
-                    { id: "shoulder_machine_press" },
-                    { id: "shoulder_arnold" },
-                    { id: "shoulder_lateral_cable" },
-                    { id: "shoulder_reverse_pecdeck" },
-                    { id: "shoulder_facepull" },
-                    { id: "shoulder_lateral_db" }
+                    { id: "shoulder_db_press" },
+                    { id: "back_close_pulldown" },
+                    { id: "chest_cable_fly_mid" },
+                    { id: "shoulder_upright" },
+                    { id: "tri_bar" },
+                    { id: "bicep_cable" }
                 ]
             },
             {
                 id: "d8",
-                name: "Saturday — Legs",
+                name: "Saturday",
                 exercises: [
-                    { id: "leg_front_squat" }, // or leg_hack
-                    { id: "leg_bulgarian" },
-                    { id: "leg_rdl" },
+                    { id: "leg_back_squat" },
                     { id: "leg_curl_seated" },
+                    { id: "leg_bulgarian" },
                     { id: "leg_lunge" },
-                    { id: "calf_seated" }
+                    { id: "calf_legpress" },
+                    { id: "leg_extension" }
                 ]
             }
         ]
@@ -117,6 +117,7 @@ window.DEFAULT_EXERCISE_LIBRARY = [
     { id: "chest_incline_db", name: "Incline Dumbbell Press", muscle: "Chest" },
     { id: "chest_decline_db", name: "Decline Dumbbell Press", muscle: "Chest" },
     { id: "chest_machine_press", name: "Machine Chest Press", muscle: "Chest" },
+    { id: "chest_machine_incline_press", name: "Machine Incline Press", muscle: "Chest" },
     { id: "chest_smith_press", name: "Smith Machine Bench Press", muscle: "Chest" },
     { id: "chest_pecdeck", name: "Pec Deck Fly", muscle: "Chest" },
     { id: "chest_cable_fly_mid", name: "Cable Fly", muscle: "Chest" },
@@ -179,6 +180,7 @@ window.DEFAULT_EXERCISE_LIBRARY = [
     { id: "tri_reverse", name: "Reverse Grip Pushdown", muscle: "Triceps" },
     { id: "tri_overhead_rope", name: "Overhead Rope Extension", muscle: "Triceps" },
     { id: "tri_overhead_db", name: "Overhead Dumbbell Extension", muscle: "Triceps" },
+    { id: "tri_single_db_ext", name: "Single-Arm Dumbbell Tricep Extension", muscle: "Triceps" },
     { id: "tri_skull", name: "Skull Crushers", muscle: "Triceps" },
     { id: "tri_closegrip", name: "Close Grip Bench Press", muscle: "Triceps" },
     { id: "tri_bench_dips", name: "Bench Dips", muscle: "Triceps" },
@@ -186,6 +188,9 @@ window.DEFAULT_EXERCISE_LIBRARY = [
     { id: "tri_kickback", name: "Tricep Kickback", muscle: "Triceps" },
     { id: "leg_back_squat", name: "Back Squat", muscle: "Legs" },
     { id: "leg_front_squat", name: "Front Squat", muscle: "Legs" },
+    { id: "leg_goblet_squat", name: "Dumbbell Goblet Squat", muscle: "Legs" },
+    { id: "leg_leverage_squat", name: "Leverage Machine Squat", muscle: "Legs" },
+    { id: "leg_sumo_squat", name: "Dumbbell Sumo Squat", muscle: "Legs" },
     { id: "leg_smith_squat", name: "Smith Machine Squat", muscle: "Legs" },
     { id: "leg_hack", name: "Hack Squat", muscle: "Legs" },
     { id: "leg_legpress", name: "Leg Press", muscle: "Legs" },
