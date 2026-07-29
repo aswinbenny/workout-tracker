@@ -4,6 +4,7 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
     const updatePlan = (newPlan) => setPlan([...newPlan]);
     
     const [modalConfig, setModalConfig] = usePlanState(null);
+    const [confirmConfig, setConfirmConfig] = usePlanState(null); // ADDED
     const [pickerTarget, setPickerTarget] = usePlanState(null);
     const [searchText, setSearchText] = usePlanState("");
 
@@ -17,7 +18,17 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
         onSave: (name) => { plan[wIdx].name = name; updatePlan(plan); setModalConfig(null); }
     });
     
-    const deleteWeek = (wIdx) => { if(confirm("Delete this entire week?")) { plan.splice(wIdx, 1); updatePlan(plan); } };
+    // UPDATED
+    const deleteWeek = (wIdx) => { 
+        setConfirmConfig({
+            title: "Delete Week?",
+            message: "Are you sure you want to delete this entire week?",
+            isDestructive: true,
+            confirmText: "Delete",
+            cancelText: "Cancel",
+            onConfirm: () => { plan.splice(wIdx, 1); updatePlan(plan); }
+        });
+    };
     
     const addDay = (wIdx) => setModalConfig({
         title: "Add Workout Day", 
@@ -58,15 +69,34 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
         });
     };
     
-    const deleteDay = (wIdx, dIdx) => { if(confirm("Delete this day?")) { plan[wIdx].days.splice(dIdx, 1); updatePlan(plan); } };
+    // UPDATED
+    const deleteDay = (wIdx, dIdx) => { 
+        setConfirmConfig({
+            title: "Delete Day?",
+            message: "Are you sure you want to delete this day?",
+            isDestructive: true,
+            confirmText: "Delete",
+            cancelText: "Cancel",
+            onConfirm: () => { plan[wIdx].days.splice(dIdx, 1); updatePlan(plan); }
+        });
+    };
+    
     const moveDay = (wIdx, dIdx, dir) => { const arr = plan[wIdx].days; if (dIdx + dir < 0 || dIdx + dir >= arr.length) return; [arr[dIdx], arr[dIdx+dir]] = [arr[dIdx+dir], arr[dIdx]]; updatePlan(plan); };
     
     const triggerAddExercise = (wIdx, dIdx) => { setPickerTarget({ wIdx, dIdx }); setSearchText(""); };
 
+    // UPDATED
     const handleSelectExercise = (exercise) => {
         const { wIdx, dIdx } = pickerTarget;
         const currentExercises = plan[wIdx].days[dIdx].exercises;
-        if (currentExercises.some(ex => ex.id === exercise.id)) return alert("This exercise is already added to this day.");
+        if (currentExercises.some(ex => ex.id === exercise.id)) {
+            return setConfirmConfig({
+                title: "Already Added",
+                message: "This exercise is already added to this day.",
+                hideCancel: true,
+                confirmText: "OK"
+            });
+        }
         currentExercises.push({ id: exercise.id });
         updatePlan(plan);
         setPickerTarget(null);
@@ -122,7 +152,6 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
                             <div className="p-2">
                                 {day.exercises.map((ex, eIdx) => (
                                     <div key={ex.id} className="flex items-center justify-between p-3 border-b border-gray-100 dark:border-white/5 last:border-0 group">
-                                        {/* Removed onClick and cursor-pointer here */}
                                         <div className="flex-1 font-medium text-gray-800 dark:text-gray-200 text-lg pr-2 truncate">{window.exerciseMap[ex.id]?.name || ex.name}</div>
                                         <div className="flex items-center text-gray-400">
                                            <button onClick={() => moveExercise(wIdx, dIdx, eIdx, -1)} className="p-2 active-bounce"><ChevronUp/></button>
@@ -144,6 +173,9 @@ window.PlanScreen = function PlanScreen({ plan, setPlan }) {
             ))}
 
             <window.InputModal config={modalConfig} onClose={() => setModalConfig(null)} />
+            {/* ADDED MODAL RENDER */}
+            <window.ConfirmModal config={confirmConfig} onClose={() => setConfirmConfig(null)} />
+            
             <window.ExercisePicker pickerTarget={pickerTarget} setPickerTarget={setPickerTarget} searchText={searchText} setSearchText={setSearchText} filteredExercises={filteredExercises} groupedExercises={groupedExercises} handleSelectExercise={handleSelectExercise} />
         </div>
     );

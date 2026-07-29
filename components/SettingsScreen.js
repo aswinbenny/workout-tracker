@@ -1,4 +1,8 @@
 window.SettingsScreen = function SettingsScreen({ theme, setTheme, setPlan, setHistory }) {
+    
+    // ADDED
+    const [confirmConfig, setConfirmConfig] = React.useState(null);
+
     const exportData = () => {
         const data = JSON.stringify({ plan: JSON.parse(localStorage.getItem('workout_plan')), history: JSON.parse(localStorage.getItem('workout_history')) });
         const blob = new Blob([data], { type: 'application/json' });
@@ -8,6 +12,7 @@ window.SettingsScreen = function SettingsScreen({ theme, setTheme, setPlan, setH
         a.click();
     };
 
+    // UPDATED
     const importData = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -18,18 +23,39 @@ window.SettingsScreen = function SettingsScreen({ theme, setTheme, setPlan, setH
                 if (data.plan && data.history) {
                     setPlan(data.plan);
                     setHistory(data.history);
-                    alert("Data imported successfully!");
+                    setConfirmConfig({
+                        title: "Success",
+                        message: "Data imported successfully!",
+                        hideCancel: true,
+                        confirmText: "OK"
+                    });
                 } else throw new Error();
-            } catch(err) { alert("Invalid backup file."); }
+            } catch(err) { 
+                setConfirmConfig({
+                    title: "Error",
+                    message: "Invalid backup file.",
+                    hideCancel: true,
+                    confirmText: "OK",
+                    isDestructive: true
+                });
+            }
         };
         reader.readAsText(file);
     };
 
+    // UPDATED
     const clearData = () => {
-        if(confirm("DANGER: Delete all history and reset plan?")) {
-            setHistory([]);
-            setPlan(window.DEFAULT_PLAN);
-        }
+        setConfirmConfig({
+            title: "Reset All Data?",
+            message: "DANGER: This will delete all history and reset your plan to default.",
+            isDestructive: true,
+            confirmText: "Reset App",
+            cancelText: "Cancel",
+            onConfirm: () => {
+                setHistory([]);
+                setPlan(window.DEFAULT_PLAN);
+            }
+        });
     };
 
     const SettingRow = ({ label, onClick, children, isDanger }) => (
@@ -70,6 +96,9 @@ window.SettingsScreen = function SettingsScreen({ theme, setTheme, setPlan, setH
                     <SettingRow label="Reset All Data" onClick={clearData} isDanger={true} />
                 </div>
             </div>
+
+            {/* ADDED MODAL RENDER */}
+            <window.ConfirmModal config={confirmConfig} onClose={() => setConfirmConfig(null)} />
         </div>
     );
 };

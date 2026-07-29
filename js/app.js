@@ -13,6 +13,9 @@ function App() {
     const [theme, setTheme] = window.useLocalStorage('workout_theme', 'dark');
     const [currentTab, setCurrentTab] = useState('home');
     const [activeWorkout, setActiveWorkout] = useState(null);
+    
+    // ADDED
+    const [confirmConfig, setConfirmConfig] = useState(null);
 
     useEffect(() => {
         if (theme === 'dark') document.documentElement.classList.add('dark');
@@ -20,17 +23,31 @@ function App() {
     }, [theme]);
 
     if (activeWorkout) {
-        return <window.WorkoutScreen 
-            workout={activeWorkout} 
-            finishWorkout={(completedWorkout) => {
-                setHistory([{ id: window.generateId(), date: new Date().toISOString(), ...completedWorkout }, ...history]);
-                setActiveWorkout(null);
-            }}
-            cancelWorkout={() => {
-                if(confirm("Cancel workout? No progress will be saved.")) setActiveWorkout(null);
-            }}
-            history={history}
-        />;
+        return (
+            <React.Fragment>
+                <window.WorkoutScreen 
+                    workout={activeWorkout} 
+                    finishWorkout={(completedWorkout) => {
+                        setHistory([{ id: window.generateId(), date: new Date().toISOString(), ...completedWorkout }, ...history]);
+                        setActiveWorkout(null);
+                    }}
+                    // UPDATED
+                    cancelWorkout={() => {
+                        setConfirmConfig({
+                            title: "Cancel Workout?",
+                            message: "No progress will be saved.",
+                            isDestructive: true,
+                            confirmText: "Cancel",
+                            cancelText: "Resume",
+                            onConfirm: () => setActiveWorkout(null)
+                        });
+                    }}
+                    history={history}
+                />
+                {/* ADDED MODAL RENDER TO WORKOUT VIEW */}
+                <window.ConfirmModal config={confirmConfig} onClose={() => setConfirmConfig(null)} />
+            </React.Fragment>
+        );
     }
 
     return (
@@ -50,6 +67,9 @@ function App() {
                 <TabButton icon={<window.Icons.Plan active={currentTab==='plan'} />} label="Plan" active={currentTab==='plan'} onClick={() => setCurrentTab('plan')} />
                 <TabButton icon={<window.Icons.Settings active={currentTab==='settings'} />} label="Settings" active={currentTab==='settings'} onClick={() => setCurrentTab('settings')} />
             </div>
+            
+            {/* ADDED MODAL RENDER TO MAIN TABS VIEW */}
+            <window.ConfirmModal config={confirmConfig} onClose={() => setConfirmConfig(null)} />
         </React.Fragment>
     );
 }
