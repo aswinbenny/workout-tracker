@@ -6,7 +6,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d1",
                 name: "Monday",
-                description: "Upper Body A (Push/Pull Strength)",
+                description: "Upper Body A (Heavy Horizontal Push/Pull)", // Updated
                 exercises: [
                     { id: "chest_flat_barbell" },
                     { id: "back_barbell_row" },
@@ -19,7 +19,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d2",
                 name: "Wednesday",
-                description: "Lower Body A (Squat Emphasis)",
+                description: "Lower Body A (Heavy Squat & Hinge)", // Updated to reflect Squat + RDL
                 exercises: [
                     { id: "leg_back_squat" },
                     { id: "leg_rdl" },
@@ -32,7 +32,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d3",
                 name: "Friday",
-                description: "Upper Body B (Shoulder & Arm Emphasis)",
+                description: "Upper Body B (Vertical Press & Arm Focus)", // Updated to reflect OHP & Dips
                 exercises: [
                     { id: "shoulder_barbell_press" },
                     { id: "chest_dips" },
@@ -45,7 +45,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d4",
                 name: "Saturday",
-                description: "Lower Body B (Machine Hypertrophy)",
+                description: "Lower Body B (Machine Hypertrophy)", 
                 exercises: [
                     { id: "leg_leverage_squat" },
                     { id: "leg_legpress" },
@@ -64,7 +64,7 @@ window.DEFAULT_PLAN = [
             {
                 id: "d5",
                 name: "Monday",
-                description: "Upper Body C (Incline & Lat Focus)",
+                description: "Upper Body C (Incline & Lat Focus)", 
                 exercises: [
                     { id: "chest_machine_incline_press" },
                     { id: "back_cable_row" },
@@ -78,10 +78,10 @@ window.DEFAULT_PLAN = [
             {
                 id: "d6",
                 name: "Wednesday",
-                description: "Lower Body C (Deadlift & Power Focus)",
+                description: "Lower Body C (Heavy Deadlift & Quad Isolation)", // Updated to reflect Leg Press/Ext
                 exercises: [
-                    { id: "back_deadlift" }, // Moved in for Power Focus
-                    { id: "leg_legpress" },  // Moved in to replace Back Hyperextension
+                    { id: "back_deadlift" }, 
+                    { id: "leg_legpress" },  
                     { id: "leg_bulgarian" },
                     { id: "leg_extension" },
                     { id: "leg_curl_seated" },
@@ -91,11 +91,11 @@ window.DEFAULT_PLAN = [
             {
                 id: "d7",
                 name: "Friday",
-                description: "Upper Body D (Dumbbell Mastery)",
+                description: "Upper Body D (Dumbbell Mastery)", // Now incredibly accurate!
                 exercises: [
                     { id: "shoulder_db_press" },
                     { id: "back_close_pulldown" },
-                    { id: "chest_cable_fly_mid" },
+                    { id: "chest_flat_db" }, // SWAPPED IN: Flat Dumbbell Bench Press
                     { id: "shoulder_lateral_cable" }, 
                     { id: "tri_bar" },
                     { id: "bicep_cable" }
@@ -104,12 +104,12 @@ window.DEFAULT_PLAN = [
             {
                 id: "d8",
                 name: "Saturday",
-                description: "Lower Body D (Speed & Volume)",
+                description: "Lower Body D (Squat Volume & Posterior Chain)", // Updated to reflect Squat + Hyperextension
                 exercises: [
-                    { id: "leg_back_squat" }, // Moved in for Speed/Volume
+                    { id: "leg_back_squat" }, 
                     { id: "leg_curl_seated" },
                     { id: "leg_bulgarian" },
-                    { id: "back_hyperextension" }, // Moved in to replace Leg Press
+                    { id: "back_hyperextension" }, 
                     { id: "calf_legpress" },
                     { id: "leg_extension" }
                 ]
@@ -117,6 +117,7 @@ window.DEFAULT_PLAN = [
         ]
     }
 ];
+
 
 window.DEFAULT_EXERCISE_LIBRARY = [
     { id: "chest_flat_barbell", name: "Barbell Bench Press", muscle: "Chest" },
