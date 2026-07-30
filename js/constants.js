@@ -26,7 +26,7 @@ window.DEFAULT_PLAN = [
                     { id: "leg_bulgarian" },
                     { id: "leg_lunge" },
                     { id: "calf_standing" },
-                    { id: "leg_goblet_squat" }
+                    { id: "leg_sumo_squat" }
                 ]
             },
             {
@@ -72,7 +72,7 @@ window.DEFAULT_PLAN = [
                     { id: "back_lat_pulldown" },
                     { id: "tri_skull" },
                     { id: "bicep_machine" },
-                    { id: "shoulder_front_db" } 
+                    { id: "shoulder_facepull" } 
                 ]
             },
             {
@@ -82,10 +82,10 @@ window.DEFAULT_PLAN = [
                 exercises: [
                     { id: "back_deadlift" }, // Moved in for Power Focus
                     { id: "leg_legpress" },  // Moved in to replace Back Hyperextension
-                    { id: "leg_lunge" },
-                    { id: "leg_sumo_squat" },
-                    { id: "calf_standing" },
-                    { id: "leg_curl_seated" }
+                    { id: "leg_bulgarian" },
+                    { id: "leg_extension" },
+                    { id: "leg_curl_seated" },
+                    { id: "calf_standing" }
                 ]
             },
             {
@@ -96,7 +96,7 @@ window.DEFAULT_PLAN = [
                     { id: "shoulder_db_press" },
                     { id: "back_close_pulldown" },
                     { id: "chest_cable_fly_mid" },
-                    { id: "shoulder_front_cable" }, 
+                    { id: "shoulder_lateral_cable" }, 
                     { id: "tri_bar" },
                     { id: "bicep_cable" }
                 ]
