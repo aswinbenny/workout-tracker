@@ -13,16 +13,16 @@ window.DEFAULT_PLAN = [
                     { id: "chest_incline_db" },
                     { id: "back_pullup" },
                     { id: "tri_single_db_ext" },
-                    { id: "shoulder_lateral_db" }
+                    { id: "shoulder_lateral_db" } 
                 ]
             },
             {
                 id: "d2",
                 name: "Wednesday",
-                description: "Lower Body A (Squat & Deadlift Emphasis)",
+                description: "Lower Body A (Squat Emphasis)",
                 exercises: [
                     { id: "leg_back_squat" },
-                    { id: "back_deadlift" },
+                    { id: "leg_rdl" },
                     { id: "leg_bulgarian" },
                     { id: "leg_lunge" },
                     { id: "calf_standing" },
@@ -38,7 +38,7 @@ window.DEFAULT_PLAN = [
                     { id: "chest_dips" },
                     { id: "back_db_row" },
                     { id: "shoulder_reverse_pecdeck" },
-                    { id: "shoulder_lateral_db" },
+                    { id: "shoulder_lateral_cable" }, 
                     { id: "bicep_hammer" }
                 ]
             },
@@ -71,16 +71,17 @@ window.DEFAULT_PLAN = [
                     { id: "chest_pecdeck" },
                     { id: "back_lat_pulldown" },
                     { id: "tri_skull" },
-                    { id: "bicep_machine" }
+                    { id: "bicep_machine" },
+                    { id: "shoulder_front_db" } 
                 ]
             },
             {
                 id: "d6",
                 name: "Wednesday",
-                description: "Lower Body C (Unilateral & Power Focus)",
+                description: "Lower Body C (Deadlift & Power Focus)",
                 exercises: [
-                    { id: "leg_goblet_squat" },
-                    { id: "back_hyperextension" },
+                    { id: "back_deadlift" }, // Moved in for Power Focus
+                    { id: "leg_legpress" },  // Moved in to replace Back Hyperextension
                     { id: "leg_lunge" },
                     { id: "leg_sumo_squat" },
                     { id: "calf_standing" },
@@ -95,7 +96,7 @@ window.DEFAULT_PLAN = [
                     { id: "shoulder_db_press" },
                     { id: "back_close_pulldown" },
                     { id: "chest_cable_fly_mid" },
-                    { id: "shoulder_upright" },
+                    { id: "shoulder_front_cable" }, 
                     { id: "tri_bar" },
                     { id: "bicep_cable" }
                 ]
@@ -105,10 +106,10 @@ window.DEFAULT_PLAN = [
                 name: "Saturday",
                 description: "Lower Body D (Speed & Volume)",
                 exercises: [
-                    { id: "leg_back_squat" },
+                    { id: "leg_back_squat" }, // Moved in for Speed/Volume
                     { id: "leg_curl_seated" },
                     { id: "leg_bulgarian" },
-                    { id: "leg_lunge" },
+                    { id: "back_hyperextension" }, // Moved in to replace Leg Press
                     { id: "calf_legpress" },
                     { id: "leg_extension" }
                 ]
@@ -161,6 +162,7 @@ window.DEFAULT_EXERCISE_LIBRARY = [
     { id: "shoulder_lateral_db", name: "Dumbbell Lateral Raise", muscle: "Shoulders" },
     { id: "shoulder_lateral_cable", name: "Cable Lateral Raise", muscle: "Shoulders" },
     { id: "shoulder_front_db", name: "Front Raise", muscle: "Shoulders" },
+    { id: "shoulder_front_cable", name: "Cable Front Raise", muscle: "Shoulders" }, 
     { id: "shoulder_front_plate", name: "Plate Front Raise", muscle: "Shoulders" },
     { id: "shoulder_rear_db", name: "Rear Delt Fly", muscle: "Shoulders" },
     { id: "shoulder_reverse_pecdeck", name: "Reverse Pec Deck", muscle: "Shoulders" },
