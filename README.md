@@ -35,12 +35,6 @@ A minimalist offline-first Workout Tracker built as a Progressive Web App (PWA).
 
 ---
 
-## Screenshots
-
-(Add screenshots later)
-
----
-
 ## Installation
 
 Clone the repository
