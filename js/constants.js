@@ -39,7 +39,8 @@ window.DEFAULT_PLAN = [
                     { id: "back_db_row" },
                     { id: "shoulder_reverse_pecdeck" },
                     { id: "shoulder_lateral_cable" }, 
-                    { id: "bicep_hammer" }
+                    { id: "bicep_hammer" },
+                    { id: "shoulder_shrug_db" }
                 ]
             },
             {
